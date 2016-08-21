@@ -1,10 +1,9 @@
 package listview.co.tpcreative.samplelistview;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -12,11 +11,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private ListView lv ;
     private ArrayList<Product> list ;
-    private ArrayAdapter<Product> adapter ;
-
+    private CustomAdapter adapter ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Product("4","D"));
         list.add(new Product("5","E"));
 
-        adapter = new ArrayAdapter<Product>(this,android.R.layout.simple_list_item_1,android.R.id.text1,list);
+        adapter = new CustomAdapter(this,R.layout.custom_item,list);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
